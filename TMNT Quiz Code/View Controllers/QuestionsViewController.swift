@@ -66,8 +66,6 @@ class QuestionsViewController: UIViewController {
             button.tag = index
             button.setTitle(colorNames[index], for: .normal)
             button.setTitleColor(.systemBlue, for: .normal)
-            
-            button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         }
         
         return buttons
@@ -104,10 +102,6 @@ class QuestionsViewController: UIViewController {
         for (index, imageView) in imageViews.enumerated() {
             imageView.tag = index
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
-            imageView.addGestureRecognizer(tapGesture)
-            imageView.isUserInteractionEnabled = true
-            imageView.isUserInteractionEnabled = true
             if let imageName = imageNames[imageView.tag] {
                 imageView.image = UIImage(named:  imageName)
             }
@@ -141,10 +135,11 @@ class QuestionsViewController: UIViewController {
             case 0:
                 // FIRST QUESTION
                 addElementsFirstQuestion(stackView: stackView)
-                stackView.isHidden = true
+//                stackView.isHidden = true
             case 1:
                 // SECOND QUESTION
                 addElemetnsSecondQuestion(stackView: stackView)
+                stackView.isHidden = true
             default:
                 print("error")
             }
@@ -153,6 +148,8 @@ class QuestionsViewController: UIViewController {
         addConstraints()
     }
     
+    // MARK: - Constrains and size
+    // Add constrains
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()
         let size = UIScreen.main.bounds
@@ -193,6 +190,7 @@ class QuestionsViewController: UIViewController {
         addSize()
     }
     
+    // Add correct size
     private func addSize() {
         // GENERAL
         questionLabel.font = UIFont.systemFont(ofSize: factor / 16)
@@ -204,12 +202,13 @@ class QuestionsViewController: UIViewController {
         }
     }
     
-    // Add Elements For StackViews
+    // MARK: - Add Views in StackViews
     // FIRST QUESTION
     private func addElementsFirstQuestion(stackView: UIStackView) {
         // firstQuestionButtons
         for button in firstQuestionButtons {
             stackView.addArrangedSubview(button)
+            button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         }
     }
     // SECOND QUESTION
@@ -230,11 +229,15 @@ class QuestionsViewController: UIViewController {
                 default:
                     print("error")
                 }
+                
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
+                imageView.addGestureRecognizer(tapGesture)
+                imageView.isUserInteractionEnabled = true
             }
         }
     }
     
-    // Actions
+    // MARK: - Actions
     // FIRST QUESTION
     @objc private func didTapButton(_ sender: UIButton) {
         switch sender.tag {
@@ -252,7 +255,7 @@ class QuestionsViewController: UIViewController {
     }
     
     // SECOND QUESTION
-    @objc func tap(_ gesture: UITapGestureRecognizer) {
+    @objc private func tap(_ gesture: UITapGestureRecognizer) {
         switch gesture.view?.tag {
         case 0:
             print("batman")

@@ -58,7 +58,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         size = view.bounds.size
         factor = min(size.height, size.width)
-        
+
         // button
         view.backgroundColor = .white
         view.addSubview(button)

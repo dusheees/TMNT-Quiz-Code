@@ -15,6 +15,9 @@
 		559E0439274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E0438274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift */; };
 		559E043C274A9728009ADFCF /* ColorNamesFirstQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E043B274A9728009ADFCF /* ColorNamesFirstQuestion.swift */; };
 		55CB5313274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB5312274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift */; };
+		55D439AB274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D439AA274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift */; };
+		55D439AD274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D439AC274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift */; };
+		55D439AF274D6BE600AAF3E2 /* ButtonsText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D439AE274D6BE600AAF3E2 /* ButtonsText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		559E0438274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesWelcomeViewController.swift; sourceTree = "<group>"; };
 		559E043B274A9728009ADFCF /* ColorNamesFirstQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorNamesFirstQuestion.swift; sourceTree = "<group>"; };
 		55CB5312274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesSecondQuestion.swift; sourceTree = "<group>"; };
+		55D439AA274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesAndLabelsTextThirdQuestion.swift; sourceTree = "<group>"; };
+		55D439AC274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesAndLabelsTextFourthQuestion.swift; sourceTree = "<group>"; };
+		55D439AE274D6BE600AAF3E2 /* ButtonsText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@
 			children = (
 				559E043B274A9728009ADFCF /* ColorNamesFirstQuestion.swift */,
 				55CB5312274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift */,
+				55D439AA274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift */,
+				55D439AC274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift */,
+				55D439AE274D6BE600AAF3E2 /* ButtonsText.swift */,
 			);
 			path = "Models For QuestionsViewController";
 			sourceTree = "<group>";
@@ -180,7 +189,10 @@
 				55CB5313274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift in Sources */,
 				559E043C274A9728009ADFCF /* ColorNamesFirstQuestion.swift in Sources */,
 				559E0439274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift in Sources */,
+				55D439AD274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift in Sources */,
 				553E7A93274A667200A8DB98 /* QuestionsViewController.swift in Sources */,
+				55D439AB274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift in Sources */,
+				55D439AF274D6BE600AAF3E2 /* ButtonsText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

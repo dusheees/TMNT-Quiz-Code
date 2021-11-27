@@ -12,12 +12,12 @@
 		553E7A84274A5C8000A8DB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553E7A83274A5C8000A8DB98 /* Assets.xcassets */; };
 		553E7A8F274A5D7900A8DB98 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 553E7A8E274A5D7900A8DB98 /* Default-568h@2x.png */; };
 		553E7A93274A667200A8DB98 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553E7A92274A667200A8DB98 /* QuestionsViewController.swift */; };
+		5544DDD4274ECCEA004C2274 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544DDD3274ECCEA004C2274 /* Question.swift */; };
+		5544DDD6274ECD0E004C2274 /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544DDD5274ECD0E004C2274 /* ResponseType.swift */; };
+		5544DDD8274ECD1D004C2274 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544DDD7274ECD1D004C2274 /* Answer.swift */; };
+		5544DDDA274ECD48004C2274 /* TMNTType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544DDD9274ECD48004C2274 /* TMNTType.swift */; };
+		558AD3E62750120B00EBFC82 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558AD3E52750120B00EBFC82 /* ResultsViewController.swift */; };
 		559E0439274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E0438274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift */; };
-		559E043C274A9728009ADFCF /* ColorNamesFirstQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E043B274A9728009ADFCF /* ColorNamesFirstQuestion.swift */; };
-		55CB5313274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB5312274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift */; };
-		55D439AB274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D439AA274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift */; };
-		55D439AD274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D439AC274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift */; };
-		55D439AF274D6BE600AAF3E2 /* ButtonsText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D439AE274D6BE600AAF3E2 /* ButtonsText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +28,12 @@
 		553E7A88274A5C8000A8DB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553E7A8E274A5D7900A8DB98 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		553E7A92274A667200A8DB98 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		5544DDD3274ECCEA004C2274 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		5544DDD5274ECD0E004C2274 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
+		5544DDD7274ECD1D004C2274 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		5544DDD9274ECD48004C2274 /* TMNTType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNTType.swift; sourceTree = "<group>"; };
+		558AD3E52750120B00EBFC82 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		559E0438274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesWelcomeViewController.swift; sourceTree = "<group>"; };
-		559E043B274A9728009ADFCF /* ColorNamesFirstQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorNamesFirstQuestion.swift; sourceTree = "<group>"; };
-		55CB5312274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesSecondQuestion.swift; sourceTree = "<group>"; };
-		55D439AA274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesAndLabelsTextThirdQuestion.swift; sourceTree = "<group>"; };
-		55D439AC274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesAndLabelsTextFourthQuestion.swift; sourceTree = "<group>"; };
-		55D439AE274D6BE600AAF3E2 /* ButtonsText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +68,8 @@
 			children = (
 				553E7A90274A5DD400A8DB98 /* Supporting Files */,
 				553E7A91274A5E1300A8DB98 /* View Controllers */,
-				559E0435274A8CD8009ADFCF /* Models For WelcomeViewController */,
-				559E043A274A96B4009ADFCF /* Models For QuestionsViewController */,
+				559E0435274A8CD8009ADFCF /* Models For WVC */,
+				5544DDD2274ECCD4004C2274 /* Models For QVC */,
 			);
 			path = "TMNT Quiz Code";
 			sourceTree = "<group>";
@@ -90,28 +90,28 @@
 			children = (
 				553E7A7E274A5C8000A8DB98 /* WelcomeViewController.swift */,
 				553E7A92274A667200A8DB98 /* QuestionsViewController.swift */,
+				558AD3E52750120B00EBFC82 /* ResultsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		559E0435274A8CD8009ADFCF /* Models For WelcomeViewController */ = {
+		5544DDD2274ECCD4004C2274 /* Models For QVC */ = {
+			isa = PBXGroup;
+			children = (
+				5544DDD3274ECCEA004C2274 /* Question.swift */,
+				5544DDD5274ECD0E004C2274 /* ResponseType.swift */,
+				5544DDD7274ECD1D004C2274 /* Answer.swift */,
+				5544DDD9274ECD48004C2274 /* TMNTType.swift */,
+			);
+			path = "Models For QVC";
+			sourceTree = "<group>";
+		};
+		559E0435274A8CD8009ADFCF /* Models For WVC */ = {
 			isa = PBXGroup;
 			children = (
 				559E0438274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift */,
 			);
-			path = "Models For WelcomeViewController";
-			sourceTree = "<group>";
-		};
-		559E043A274A96B4009ADFCF /* Models For QuestionsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				559E043B274A9728009ADFCF /* ColorNamesFirstQuestion.swift */,
-				55CB5312274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift */,
-				55D439AA274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift */,
-				55D439AC274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift */,
-				55D439AE274D6BE600AAF3E2 /* ButtonsText.swift */,
-			);
-			path = "Models For QuestionsViewController";
+			path = "Models For WVC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,13 +186,13 @@
 			files = (
 				553E7A7F274A5C8000A8DB98 /* WelcomeViewController.swift in Sources */,
 				553E7A7B274A5C8000A8DB98 /* AppDelegate.swift in Sources */,
-				55CB5313274AE6FB0020FFA5 /* ImageNamesSecondQuestion.swift in Sources */,
-				559E043C274A9728009ADFCF /* ColorNamesFirstQuestion.swift in Sources */,
+				5544DDD8274ECD1D004C2274 /* Answer.swift in Sources */,
+				5544DDD6274ECD0E004C2274 /* ResponseType.swift in Sources */,
 				559E0439274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift in Sources */,
-				55D439AD274D495000AAF3E2 /* ImageNamesAndLabelsTextFourthQuestion.swift in Sources */,
+				5544DDD4274ECCEA004C2274 /* Question.swift in Sources */,
 				553E7A93274A667200A8DB98 /* QuestionsViewController.swift in Sources */,
-				55D439AB274D291A00AAF3E2 /* ImageNamesAndLabelsTextThirdQuestion.swift in Sources */,
-				55D439AF274D6BE600AAF3E2 /* ButtonsText.swift in Sources */,
+				5544DDDA274ECD48004C2274 /* TMNTType.swift in Sources */,
+				558AD3E62750120B00EBFC82 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -189,8 +189,9 @@ class QuestionsViewController: UIViewController {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         stackView.spacing = 0
+        stackView.backgroundColor = .black
         
         return stackView
     }()
@@ -206,7 +207,7 @@ class QuestionsViewController: UIViewController {
             stackView.translatesAutoresizingMaskIntoConstraints = false
             stackView.axis = .horizontal
             stackView.distribution = .equalSpacing
-            stackView.backgroundColor = .clear
+            stackView.backgroundColor = .cyan
             stackView.tag = index
         }
         
@@ -226,6 +227,7 @@ class QuestionsViewController: UIViewController {
             label.tag = index
             label.textColor = .black
             label.sizeToFit()
+            label.backgroundColor = .red
         }
         
         return labels
@@ -242,6 +244,7 @@ class QuestionsViewController: UIViewController {
         for `switch` in switches {
             `switch`.translatesAutoresizingMaskIntoConstraints = false
             `switch`.isOn = false
+            `switch`.backgroundColor = .blue
         }
         
         return switches
@@ -539,7 +542,6 @@ class QuestionsViewController: UIViewController {
     // Add constrains
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()
-        let size = UIScreen.main.bounds
         
         //Add
         // GENERAL
@@ -586,10 +588,8 @@ class QuestionsViewController: UIViewController {
         
         // FOURTH QUESTION
         // stackViewsFourthQuestion
-        for innerStackView in stackViewsFourthQuestion {
-            constraints.append(innerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: sizeWidthHeight(size.width) * 0.04830918))
-            constraints.append(innerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -sizeWidthHeight(size.width) * 0.04830918))
-        }
+        constraints.append(generalStackViewFourthQuestion.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: sizeWidthHeight(size.width) * 0.04830918))
+        constraints.append(generalStackViewFourthQuestion.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -sizeWidthHeight(size.width) * 0.04830918))
         
         // FIFTH QUESTION
         // buttonsFifthQuestion
@@ -618,6 +618,8 @@ class QuestionsViewController: UIViewController {
     // Add correct size
     private func addSize() {
         // GENERAL
+        // navigationController
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black , NSAttributedString.Key.font: UIFont.systemFont(ofSize: factor / 25)]
         // questionLabel
         questionLabel.font = UIFont.systemFont(ofSize: factor / 16)
         
@@ -816,7 +818,7 @@ class QuestionsViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if currentQuestion.type == .toggleButtons {
-            stackViews[questionIndex].axis = size.height < size.width ? .horizontal : .vertical
+            stackViews[currentQuestion.tag].axis = size.height < size.width ? .horizontal : .vertical
         }
     }
     

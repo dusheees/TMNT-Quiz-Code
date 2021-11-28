@@ -117,8 +117,13 @@ class ResultsViewController: UIViewController {
     
     // Add correct size
     private func addSize() {
+        // general
+        // rightBarButtonItem
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize:  factor / 32)], for: [])
+        
         // resultLabel
         resultLabel.font = UIFont.systemFont(ofSize: factor / 16)
+        
         // descriptionLabel
         descriptionLabel.font = UIFont.systemFont(ofSize: factor / 19)
     }

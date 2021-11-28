@@ -32,12 +32,11 @@ class QuestionsViewController: UIViewController {
         let thirdQuestionStackView = UIStackView()
         let fourthQuestionStackView = UIStackView()
         let fifthQuestionStackView = UIStackView()
-        let resultStackViewFifthQuestion = UIStackView()
         
         let stackViews = [
             firstQuestionStackView, secondQuestionStackView,
             thirdQuestionStackView, fourthQuestionStackView,
-            fifthQuestionStackView, resultStackViewFifthQuestion,
+            fifthQuestionStackView,
         ]
         
         for (index, stackView) in stackViews.enumerated() {
@@ -320,6 +319,15 @@ class QuestionsViewController: UIViewController {
     }()
     
     // MARK: - UIProperties RESULT FIFTH QUESTION
+    private let resultStackViewFifthQuestion: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.backgroundColor = .clear
+        stackView.isHidden = true
+        return stackView
+    }()
     // resultLabelStackViewFifthQuestion
     private let resultLabelStackViewFifthQuestion: UIStackView = {
         let stackView = UIStackView()
@@ -399,6 +407,7 @@ class QuestionsViewController: UIViewController {
                 Question.all[index].answers = Question.all[index].answers.shuffled()
             }
         }
+        Question.all = Question.all.shuffled()
         
         size = view.bounds.size
         factor = min(size.height, size.width)
@@ -410,6 +419,7 @@ class QuestionsViewController: UIViewController {
         view.addSubview(questionLabel)
         view.addSubview(progressLine)
                 
+        view.addSubview(resultStackViewFifthQuestion)
         // stackViews
         for stackView in stackViews {
             view.addSubview(stackView)
@@ -429,9 +439,8 @@ class QuestionsViewController: UIViewController {
             case 4:
                 // FIFTH QUESTION
                 addElementsFifthQuestion(stackView: stackView)
-            case 5:
                 // RESULT FIFTH QUESTION
-                addElementsResultFifthQuestion(stackView: stackView)
+                addElementsResultFifthQuestion()
             default:
                 print("error")
             }
@@ -439,13 +448,12 @@ class QuestionsViewController: UIViewController {
         
         addConstraints()
         updateUI()
-//        stackViews = stackViews.shuffled()
     }
     
     // update User Interface
     func updateUI() {
         func updateSingleButtonsStack() {
-            stackViews[questionIndex].isHidden = false
+            stackViews[currentQuestion.tag].isHidden = false
             for button in firstQuestionButtons {
                 button.setTitle(nil, for: [])
             }
@@ -455,7 +463,7 @@ class QuestionsViewController: UIViewController {
         }
         
         func updateSingleImagesStack() {
-            stackViews[questionIndex].isHidden = false
+            stackViews[currentQuestion.tag].isHidden = false
             for (imageView, answer) in zip(imageViewsSecondQuestion, currentAnswers) {
                 if let imageName = answer.image {
                     imageView.image = UIImage(named: imageName)
@@ -464,13 +472,13 @@ class QuestionsViewController: UIViewController {
         }
         
         func updateRangeStack() {
-            stackViews[questionIndex].isHidden = false
+            stackViews[currentQuestion.tag].isHidden = false
             labelsThirdQuestion.first?.text = currentAnswers.first?.text
             labelsThirdQuestion.last?.text = currentAnswers.last?.text
         }
         
         func updateMultiplyStack() {
-            stackViews[questionIndex].isHidden = false
+            stackViews[currentQuestion.tag].isHidden = false
             for label in labelsFourthQuestion {
                 label.text = nil
             }
@@ -481,8 +489,8 @@ class QuestionsViewController: UIViewController {
         
         func updateToggleButtonsStack() {
             let size = UIScreen.main.bounds
-            stackViews[questionIndex].axis = size.height < size.width ? .horizontal : .vertical
-            stackViews[questionIndex].isHidden = false
+            stackViews[currentQuestion.tag].axis = size.height < size.width ? .horizontal : .vertical
+            stackViews[currentQuestion.tag].isHidden = false
             for button in buttonsFifthQuestion {
                 button.setTitle("?", for: [])
             }
@@ -491,6 +499,7 @@ class QuestionsViewController: UIViewController {
         for stackView in stackViews {
             stackView.isHidden = true
         }
+        resultStackViewFifthQuestion.isHidden = true
 
         let totalprogress = Float(questionIndex) / Float(Question.all.count)
         
@@ -552,7 +561,6 @@ class QuestionsViewController: UIViewController {
         // firstQuestionButtons
         for button in firstQuestionButtons {
             constraints.append(button.heightAnchor.constraint(equalToConstant: sizeWidthHeight(size.height) * 0.058))
-            constraints.append(button.widthAnchor.constraint(equalToConstant: sizeWidthHeight(size.width) * 0.362))
             constraints.append(button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: sizeWidthHeight(size.width) * 0.04830918))
             constraints.append(button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -sizeWidthHeight(size.width) * 0.04830918))
         }
@@ -589,6 +597,10 @@ class QuestionsViewController: UIViewController {
             constraints.append(button.heightAnchor.constraint(equalToConstant: sizeWidthHeight(size.height) * 0.12))
             constraints.append(button.widthAnchor.constraint(equalToConstant: sizeWidthHeight(size.height) * 0.12))
         }
+        // RESULT FIFTH QUESTION
+        // resultStackViewFifthQuestion
+        constraints.append(resultStackViewFifthQuestion.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0))
+        constraints.append(resultStackViewFifthQuestion.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 0))
         // resultLabelStackViewFifthQuestion
         constraints.append(resultLabelStackViewFifthQuestion.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: sizeWidthHeight(size.width) * 0.04830918))
         constraints.append(resultLabelStackViewFifthQuestion.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -sizeWidthHeight(size.width) * 0.04830918))
@@ -783,15 +795,15 @@ class QuestionsViewController: UIViewController {
         }
     }
     // RESULT FIFTH QUESTION
-    private func addElementsResultFifthQuestion(stackView: UIStackView) {
+    private func addElementsResultFifthQuestion() {
         // resultLabelStackViewFifthQuestion
-        stackView.addArrangedSubview(resultLabelStackViewFifthQuestion)
+        resultStackViewFifthQuestion.addArrangedSubview(resultLabelStackViewFifthQuestion)
         // resultLabelFifthQuestion
         resultLabelStackViewFifthQuestion.addArrangedSubview(resultLabelFifthQuestion)
         // resultQuestionLabelFifthQuestion
         resultLabelStackViewFifthQuestion.addArrangedSubview(resultQuestionLabelFifthQuestion)
         // resultInnerStackViewFifthQuestion
-        stackView.addArrangedSubview(resultInnerStackViewFifthQuestion)
+        resultStackViewFifthQuestion.addArrangedSubview(resultInnerStackViewFifthQuestion)
         // resultButtonsFifthQuestion
         for button in resultButtonsFifthQuestion {
             resultInnerStackViewFifthQuestion.addArrangedSubview(button)
@@ -872,11 +884,9 @@ class QuestionsViewController: UIViewController {
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [self] in
-            for innerStackView in self.verticalStackViewsFifthQuestion {
-                questionLabel.text = nil
-                innerStackView.isHidden = true
-            }
-            self.stackViews[questionIndex+1].isHidden = false
+            questionLabel.text = nil
+            stackViews[currentQuestion.tag].isHidden = true
+            resultStackViewFifthQuestion.isHidden = false
         }
     }
     

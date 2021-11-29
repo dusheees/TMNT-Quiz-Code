@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		552DA5222755184800A6C751 /* SizeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552DA5212755184800A6C751 /* SizeScreen.swift */; };
 		553E7A7B274A5C8000A8DB98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553E7A7A274A5C8000A8DB98 /* AppDelegate.swift */; };
 		553E7A7F274A5C8000A8DB98 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553E7A7E274A5C8000A8DB98 /* WelcomeViewController.swift */; };
 		553E7A84274A5C8000A8DB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553E7A83274A5C8000A8DB98 /* Assets.xcassets */; };
@@ -17,10 +18,10 @@
 		5544DDD8274ECD1D004C2274 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544DDD7274ECD1D004C2274 /* Answer.swift */; };
 		5544DDDA274ECD48004C2274 /* TMNTType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544DDD9274ECD48004C2274 /* TMNTType.swift */; };
 		558AD3E62750120B00EBFC82 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558AD3E52750120B00EBFC82 /* ResultsViewController.swift */; };
-		559E0439274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E0438274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		552DA5212755184800A6C751 /* SizeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeScreen.swift; sourceTree = "<group>"; };
 		553E7A77274A5C8000A8DB98 /* TMNT Quiz Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMNT Quiz Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		553E7A7A274A5C8000A8DB98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		553E7A7E274A5C8000A8DB98 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		5544DDD7274ECD1D004C2274 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		5544DDD9274ECD48004C2274 /* TMNTType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNTType.swift; sourceTree = "<group>"; };
 		558AD3E52750120B00EBFC82 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		559E0438274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNamesWelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		552DA5202755182700A6C751 /* GeneralModel */ = {
+			isa = PBXGroup;
+			children = (
+				552DA5212755184800A6C751 /* SizeScreen.swift */,
+			);
+			path = GeneralModel;
+			sourceTree = "<group>";
+		};
 		553E7A6E274A5C8000A8DB98 = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +76,7 @@
 			children = (
 				553E7A90274A5DD400A8DB98 /* Supporting Files */,
 				553E7A91274A5E1300A8DB98 /* View Controllers */,
-				559E0435274A8CD8009ADFCF /* Models For WVC */,
+				552DA5202755182700A6C751 /* GeneralModel */,
 				5544DDD2274ECCD4004C2274 /* Models For QVC */,
 			);
 			path = "TMNT Quiz Code";
@@ -104,14 +112,6 @@
 				5544DDD9274ECD48004C2274 /* TMNTType.swift */,
 			);
 			path = "Models For QVC";
-			sourceTree = "<group>";
-		};
-		559E0435274A8CD8009ADFCF /* Models For WVC */ = {
-			isa = PBXGroup;
-			children = (
-				559E0438274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift */,
-			);
-			path = "Models For WVC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +188,7 @@
 				553E7A7B274A5C8000A8DB98 /* AppDelegate.swift in Sources */,
 				5544DDD8274ECD1D004C2274 /* Answer.swift in Sources */,
 				5544DDD6274ECD0E004C2274 /* ResponseType.swift in Sources */,
-				559E0439274A8D46009ADFCF /* ImageNamesWelcomeViewController.swift in Sources */,
+				552DA5222755184800A6C751 /* SizeScreen.swift in Sources */,
 				5544DDD4274ECCEA004C2274 /* Question.swift in Sources */,
 				553E7A93274A667200A8DB98 /* QuestionsViewController.swift in Sources */,
 				5544DDDA274ECD48004C2274 /* TMNTType.swift in Sources */,

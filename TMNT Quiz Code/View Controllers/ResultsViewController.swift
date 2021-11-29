@@ -11,14 +11,14 @@ class ResultsViewController: UIViewController {
 
     // MARK: - UIProperties
     // resultStackView
-    lazy private var resultStackView: UIStackView = {
+    private let resultStackView: UIStackView = {
         let stackView = UIStackView()
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.spacing = sizeWidthHeight(size.height) * 0.02232143
+        stackView.spacing = SizeScreen.sizeWidthHeight(SizeScreen.size.height) * 0.02232143
         
         return stackView
     }()
@@ -27,7 +27,6 @@ class ResultsViewController: UIViewController {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "leonardo@x1")
         
         return imageView
     }()
@@ -35,7 +34,6 @@ class ResultsViewController: UIViewController {
     private let resultLabel: UILabel = {
         let resultLabel = UILabel()
         
-        resultLabel.translatesAutoresizingMaskIntoConstraints = false
         resultLabel.textAlignment = .center
         
         return resultLabel
@@ -44,7 +42,6 @@ class ResultsViewController: UIViewController {
     private let descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 7
         
@@ -52,22 +49,16 @@ class ResultsViewController: UIViewController {
     }()
     
     // MARK: - Properties
-    var size: CGSize!
-    var factor: CGFloat!
-    
     var answers: [Answer] = []
     
     // MARK: - UIMethods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Завершить", style: .plain, target: self, action: #selector(dismissSelf))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(dismissSelf))
         
         view.backgroundColor = .white
         navigationItem.title = "Результат"
-        
-        size = view.bounds.size
-        factor = min(size.height, size.width)
         
         view.addSubview(resultStackView)
         resultStackView.addArrangedSubview(resultImageView)
@@ -75,7 +66,6 @@ class ResultsViewController: UIViewController {
         resultStackView.addArrangedSubview(descriptionLabel)
         
         addConstraints()
-
         calculatePersonalityResult()
     }
     
@@ -101,13 +91,12 @@ class ResultsViewController: UIViewController {
         
         // Add
         // resultStackView
-        constraints.append(resultStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0))
         constraints.append(resultStackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 0))
-        constraints.append(resultStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: sizeWidthHeight(size.width) * 0.0625))
-        constraints.append(resultStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -sizeWidthHeight(size.width) * 0.0625))
+        constraints.append(resultStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
+        constraints.append(resultStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
         // resultImageView
-        constraints.append(resultImageView.heightAnchor.constraint(equalToConstant: sizeWidthHeight(size.width) * 0.35))
-        constraints.append(resultImageView.widthAnchor.constraint(equalToConstant: sizeWidthHeight(size.width) * 0.35))
+        constraints.append(resultImageView.heightAnchor.constraint(equalToConstant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.35))
+        constraints.append(resultImageView.widthAnchor.constraint(equalToConstant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.35))
         
         // Activate
         NSLayoutConstraint.activate(constraints)
@@ -117,29 +106,17 @@ class ResultsViewController: UIViewController {
     
     // Add correct size
     private func addSize() {
-        // general
+        guard let coefficient = SizeScreen.size.height / SizeScreen.size.width < 2 && SizeScreen.size.height / SizeScreen.size.width > 0.5 ? 37 : 27 else {
+            return
+        }
         // rightBarButtonItem
-        navigationItem.rightBarButtonItem?.setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize:  factor / 32)], for: [])
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize:  SizeScreen.giveFactor() / CGFloat(coefficient))], for: [])
         
         // resultLabel
-        resultLabel.font = UIFont.systemFont(ofSize: factor / 16)
+        resultLabel.font = UIFont.systemFont(ofSize: SizeScreen.giveFactor() / 16)
         
         // descriptionLabel
-        descriptionLabel.font = UIFont.systemFont(ofSize: factor / 19)
-    }
-    
-    private func sizeWidthHeight(_ invertSize: CGFloat) -> CGFloat {
-        if size.width < size.height {
-            switch invertSize {
-            case size.width: return size.width
-            default: return size.height
-            }
-        } else {
-            switch invertSize {
-            case size.width: return size.height
-            default: return size.width
-            }
-        }
+        descriptionLabel.font = UIFont.systemFont(ofSize: SizeScreen.giveFactor() / 19)
     }
     
     // MARK: - Actions

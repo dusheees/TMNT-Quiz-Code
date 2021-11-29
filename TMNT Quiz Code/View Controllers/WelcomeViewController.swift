@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
         
         return button
     }()
-    // images
+    // imageViews
     private let imageViews: [UIImageView] = {
         let topLeftImageView = UIImageView()
         let topRightImageView = UIImageView()
@@ -36,7 +36,12 @@ class WelcomeViewController: UIViewController {
         
         let imageViews = [topLeftImageView, topRightImageView, bottomLeftImageView, bottomRightImageView]
         
-        let imageNames: [Int : String] = [0 : ImageNamesWelcomeViewController.donatello.rawValue, 1 : ImageNamesWelcomeViewController.leonardo.rawValue, 2 : ImageNamesWelcomeViewController.michaelangelo.rawValue, 3 : ImageNamesWelcomeViewController.raphael.rawValue]
+        let imageNames: [Int : String] = [
+            0 : "donatello@x1",
+            1 : "leonardo@x1",
+            2 : "michaelangelo@x1",
+            3 : "raphael@x1",
+        ]
         
         for (index, imageView) in imageViews.enumerated() {
             imageView.tag = index
@@ -49,16 +54,10 @@ class WelcomeViewController: UIViewController {
         return imageViews
     }()
     
-    // MARK: - Propeties
-    var size: CGSize!
-    var factor: CGFloat!
-    
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        size = view.bounds.size
-        factor = min(size.height, size.width)
-
+        
         // button
         view.backgroundColor = .white
         view.addSubview(button)
@@ -78,26 +77,26 @@ class WelcomeViewController: UIViewController {
         // button
         constraints.append(button.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0))
         constraints.append(button.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 0))
-        constraints.append(button.heightAnchor.constraint(equalToConstant: sizeWidthHeight(size.height) * 0.058))
-        constraints.append(button.widthAnchor.constraint(equalToConstant: sizeWidthHeight(size.width) * 0.362))
+        constraints.append(button.heightAnchor.constraint(equalToConstant: SizeScreen.sizeWidthHeight(SizeScreen.size.height) * 0.058))
+        constraints.append(button.widthAnchor.constraint(equalToConstant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.362))
         
         // imageViews
         for imageView in imageViews {
-            constraints.append(imageView.heightAnchor.constraint(equalToConstant: sizeWidthHeight(size.width) * 0.35))
-            constraints.append(imageView.widthAnchor.constraint(equalToConstant: sizeWidthHeight(size.width) * 0.35))
+            constraints.append(imageView.heightAnchor.constraint(equalToConstant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.35))
+            constraints.append(imageView.widthAnchor.constraint(equalToConstant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.35))
             switch imageView.tag {
             case 0:
-                constraints.append(imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: sizeWidthHeight(size.width) * 0.0625))
-                constraints.append(imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: sizeWidthHeight(size.width) * 0.0625))
+                constraints.append(imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
+                constraints.append(imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
             case 1:
-                constraints.append(imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -sizeWidthHeight(size.width) * 0.0625))
-                constraints.append(imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: sizeWidthHeight(size.width) * 0.0625))
+                constraints.append(imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
+                constraints.append(imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
             case 2:
-                constraints.append(imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: sizeWidthHeight(size.width) * 0.0625))
-                constraints.append(imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -sizeWidthHeight(size.width) * 0.0625))
+                constraints.append(imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
+                constraints.append(imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
             case 3:
-                constraints.append(imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -sizeWidthHeight(size.width) * 0.0625))
-                constraints.append(imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -sizeWidthHeight(size.width) * 0.0625))
+                constraints.append(imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
+                constraints.append(imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SizeScreen.sizeWidthHeight(SizeScreen.size.width) * 0.0625))
             default:
                 print("error")
             }
@@ -110,21 +109,7 @@ class WelcomeViewController: UIViewController {
     
     private func addSize() {
         // button
-        button.titleLabel?.font = UIFont.systemFont(ofSize: factor / 16)
-    }
-    
-    private func sizeWidthHeight(_ invertSize: CGFloat) -> CGFloat {
-        if size.width < size.height {
-            switch invertSize {
-            case size.width: return size.width
-            default: return size.height
-            }
-        } else {
-            switch invertSize {
-            case size.width: return size.height
-            default: return size.width
-            }
-        }
+        button.titleLabel?.font = UIFont.systemFont(ofSize: SizeScreen.giveFactor() / 16)
     }
     
     // MARK: - Actions

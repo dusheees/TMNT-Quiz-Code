@@ -18,6 +18,7 @@ class QuestionsViewController: UIViewController {
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         questionLabel.textAlignment = .center
         questionLabel.numberOfLines = 2
+        questionLabel.textColor = UIColor.black
         
         return questionLabel
     }()
@@ -307,6 +308,7 @@ class QuestionsViewController: UIViewController {
         for (index, button) in buttons.enumerated() {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.backgroundColor = UIColor(rgb: 0x91A200)
+            button.setTitleColor(.white, for: [])
             button.tag = index
         }
         

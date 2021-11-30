@@ -35,6 +35,7 @@ class ResultsViewController: UIViewController {
         let resultLabel = UILabel()
         
         resultLabel.textAlignment = .center
+        resultLabel.textColor = UIColor.black
         
         return resultLabel
     }()
@@ -44,6 +45,7 @@ class ResultsViewController: UIViewController {
         
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 7
+        descriptionLabel.textColor = UIColor.black
         
         return descriptionLabel
     }()
